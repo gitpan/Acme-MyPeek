@@ -1,0 +1,50 @@
+Acme-MyPeek Version 0.01
+
+Convert from and to *.xls, *.csv using Win32::OLE
+
+SYNOPSIS
+
+    use Acme::MyPeek qw(High_Int High_Dbl DataType);
+
+INSTALLATION
+
+    To install this module, run the following commands:
+
+	perl Makefile.PL
+	make
+	make test
+	make install
+
+SUPPORT AND DOCUMENTATION
+
+    After installing, you can find documentation for this module with the
+    perldoc command.
+
+    perldoc Acme::MyPeek
+
+You can also look for information at:
+
+    RT, CPAN's request tracker
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Acme-MyPeek
+
+    AnnoCPAN, Annotated CPAN documentation
+        http://annocpan.org/dist/Acme-MyPeek
+
+    CPAN Ratings
+        http://cpanratings.perl.org/d/Acme-MyPeek
+
+    Search CPAN
+        http://search.cpan.org/dist/Acme-MyPeek/
+
+
+AUTHOR
+
+    Klaus Eichner <klaus03@gmail.com>
+
+COPYRIGHT AND LICENSE
+
+    Copyright (C) 2009-2011 by Klaus Eichner
+
+    All rights reserved. This program is free software; you can redistribute
+    it and/or modify it under the terms of the artistic license 2.0,
+    see http://www.opensource.org/licenses/artistic-license-2.0.php
