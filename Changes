@@ -2,3 +2,9 @@ Revision history for Acme-MyPeek
 
 0.01    24 May 2013
         First version, released on an unsuspecting world.
+
+0.02    25 May 2013
+        refactor functions High_Int(), High_Dbl()
+        rename into hi(), hd(), rename DataType() into dt()
+        export hi(), hd(), dt() by default
+        replace sprintf('%d', ...) by sprintf('%u', ...)

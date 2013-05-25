@@ -6,19 +6,26 @@ use warnings;
 use B qw(svref_2object class);
 
 require Exporter;
+
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw();
-our @EXPORT_OK = qw(High_Int High_Dbl DataType);
-our $VERSION   = '0.01';
+our @EXPORT    = qw(hi hd dt);
+our @EXPORT_OK = qw();
+our $VERSION   = '0.02';
 
-sub High_Int {
+sub hi { highval( sub{ $_[0]                 eq sprintf('%u',  $_[0])      }); }
+sub hd { highval( sub{ sprintf('%.f', $_[0]) ne sprintf('%.f', $_[0] - 1)  }); }
+sub dt { class(svref_2object(\$_[0]));                                 }
+
+sub highval {
+    my ($ok) = @_;
+
     my $x = 1;
     my $f = 1;
 
     for (1..100) {
         my $y = $x * 10;
 
-        unless ($y eq sprintf('%d', $y)) {
+        unless ($ok->($y)) {
             $f = 0;
             last;
         }
@@ -33,8 +40,8 @@ sub High_Int {
     for (1..1000) {
         my $y = $x + $r;
 
-        unless ($y eq sprintf('%d', $y)) {
-            if ($r<=1) {
+        unless ($ok->($y)) {
+            if ($r <= 1) {
                 $r = 0;
                 last;
             }
@@ -49,50 +56,6 @@ sub High_Int {
     return 0 if $r;
 
     return $x
-}
-
-sub High_Dbl {
-    my $x = 1;
-    my $f = 1;
-
-    for (1..100) {
-        my $y = $x * 10;
-
-        if ($y == $y + 1 or $y == $y - 1) {
-            $f = 0;
-            last;
-        }
-
-        $x = $y;
-    }
-
-    return 0 if $f;
-
-    my $r = $x;
-
-    for (1..1000) {
-        my $y = $x + $r;
-
-        if ($y == $y + 1 or $y == $y - 1) {
-            if ($r<=1) {
-                $r = 0;
-                last;
-            }
-
-            $r /= 10;
-            next;
-        }
-
-        $x += $r;
-    }
-
-    return 0 if $r;
-
-    return $x
-}
-
-sub DataType {
-    class(svref_2object(\$_[0]));
 }
 
 1;
@@ -105,7 +68,13 @@ Acme::MyPeek - Peek into the internal number representation
 
 =head1 SYNOPSIS
 
-    use Acme::MyPeek qw(High_Int High_Dbl DataType);
+    use Acme::MyPeek;
+
+    print "no of bits integers..: ", log(hi) / log(2), "\n";
+    print "no of bits floats ...: ", log(hd) / log(2), "\n";
+    print "data type for int....: ", dt(3),            "\n";
+    print "data type for float..: ", dt(3.1),          "\n";
+    print "data type for char...: ", dt('z'),          "\n";
 
 =head1 AUTHOR
 

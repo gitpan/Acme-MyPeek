@@ -1,10 +1,16 @@
-Acme-MyPeek Version 0.01
+Acme-MyPeek Version 0.02
 
-Convert from and to *.xls, *.csv using Win32::OLE
+    Peek into the internal number representation
 
 SYNOPSIS
 
-    use Acme::MyPeek qw(High_Int High_Dbl DataType);
+    use Acme::MyPeek;
+
+    print "no of bits integers..: ", log(hi) / log(2), "\n";
+    print "no of bits floats ...: ", log(hd) / log(2), "\n";
+    print "data type for int....: ", dt(3),            "\n";
+    print "data type for float..: ", dt(3.1),          "\n";
+    print "data type for char...: ", dt('z'),          "\n";
 
 INSTALLATION
 
