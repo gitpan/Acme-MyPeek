@@ -8,3 +8,6 @@ Revision history for Acme-MyPeek
         rename into hi(), hd(), rename DataType() into dt()
         export hi(), hd(), dt() by default
         replace sprintf('%d', ...) by sprintf('%u', ...)
+
+0.03    31 May 2013
+        Add diagnostics to identify test failures hd() > 100

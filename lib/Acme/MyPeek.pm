@@ -10,7 +10,7 @@ require Exporter;
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(hi hd dt);
 our @EXPORT_OK = qw();
-our $VERSION   = '0.02';
+our $VERSION   = '0.03';
 
 sub hi { highval( sub{ $_[0]                 eq sprintf('%u',  $_[0])      }); }
 sub hd { highval( sub{ sprintf('%.f', $_[0]) ne sprintf('%.f', $_[0] - 1)  }); }
@@ -33,7 +33,7 @@ sub highval {
         $x = $y;
     }
 
-    return 0 if $f;
+    return -1 if $f;
 
     my $r = $x;
 
@@ -53,7 +53,7 @@ sub highval {
         $x += $r;
     }
 
-    return 0 if $r;
+    return -2 if $r;
 
     return $x
 }

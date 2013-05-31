@@ -8,6 +8,9 @@ use_ok('Acme::MyPeek');
 my $hi = hi();
 my $hd = hd();
 
+diag("hi = <$hi>");
+diag("hd = <$hd>");
+
 is(  $hi,     sprintf('%u', $hi),     'hi() '    .'== sprintf(hi()'.    ')');
 isnt($hi + 1, sprintf('%u', $hi + 1), 'hi() + 1 '.'!= sprintf(hi()'.' + 1)');
 ok($hi > 100,                         'hi() > 100');
