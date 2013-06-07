@@ -15,7 +15,7 @@ name: Acme-MyPeek
 provides:
   Acme::MyPeek:
     file: lib/Acme/MyPeek.pm
-    version: 0.03
+    version: 0.04
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.03
+version: 0.04

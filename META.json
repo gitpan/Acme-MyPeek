@@ -23,7 +23,7 @@
    "provides" : {
       "Acme::MyPeek" : {
          "file" : "lib/Acme/MyPeek.pm",
-         "version" : "0.03"
+         "version" : "0.04"
       }
    },
    "release_status" : "stable",
@@ -32,5 +32,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }

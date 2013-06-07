@@ -8,13 +8,16 @@ use B qw(svref_2object class);
 require Exporter;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(hi hd dt);
+our @EXPORT    = qw(hi hd dt lv);
 our @EXPORT_OK = qw();
-our $VERSION   = '0.03';
+our $VERSION   = '0.04';
+
+my $last_val;
 
 sub hi { highval( sub{ $_[0]                 eq sprintf('%u',  $_[0])      }); }
 sub hd { highval( sub{ sprintf('%.f', $_[0]) ne sprintf('%.f', $_[0] - 1)  }); }
 sub dt { class(svref_2object(\$_[0]));                                 }
+sub lv { $last_val; }
 
 sub highval {
     my ($ok) = @_;
@@ -32,6 +35,8 @@ sub highval {
 
         $x = $y;
     }
+
+    $last_val = $x;
 
     return -1 if $f;
 
@@ -53,6 +58,8 @@ sub highval {
         $x += $r;
     }
 
+    $last_val = $x;
+
     return -2 if $r;
 
     return $x
@@ -72,6 +79,7 @@ Acme::MyPeek - Peek into the internal number representation
 
     print "no of bits integers..: ", log(hi) / log(2), "\n";
     print "no of bits floats ...: ", log(hd) / log(2), "\n";
+    print "last val.............: ", lv,               "\n";
     print "data type for int....: ", dt(3),            "\n";
     print "data type for float..: ", dt(3.1),          "\n";
     print "data type for char...: ", dt('z'),          "\n";

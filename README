@@ -1,4 +1,4 @@
-Acme-MyPeek Version 0.03
+Acme-MyPeek Version 0.04
 
     Peek into the internal number representation
 
@@ -8,6 +8,7 @@ SYNOPSIS
 
     print "no of bits integers..: ", log(hi) / log(2), "\n";
     print "no of bits floats ...: ", log(hd) / log(2), "\n";
+    print "last val.............: ", lv,               "\n";
     print "data type for int....: ", dt(3),            "\n";
     print "data type for float..: ", dt(3.1),          "\n";
     print "data type for char...: ", dt('z'),          "\n";
