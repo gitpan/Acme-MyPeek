@@ -10,7 +10,7 @@ require Exporter;
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(hi hd dt lv);
 our @EXPORT_OK = qw();
-our $VERSION   = '0.04';
+our $VERSION   = '0.05';
 
 my $last_val;
 
