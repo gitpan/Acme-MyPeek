@@ -1,4 +1,10 @@
-Revision history for Acme::MyPeek
+Revision history for Acme-MyPeek
+
+0.06 - 2014-12-28T09:24:30+01:00
+
+  [DOCUMENTATION]
+
+  - Migrate to Dist::Zilla
 
 0.05 - 2014-09-20T19:29:17+01:00
 
